@@ -49,7 +49,6 @@ const pizzas = [
 const formulario = document.getElementById("formulario");
 const contenedorPizza = document.getElementById("contenedor-pizza");
 
-// Mostrar la última pizza buscada al recargar la página
 const ultimaPizza = localStorage.getItem("ultimaPizza");
 if (ultimaPizza) {
   const pizzaEncontrada = JSON.parse(ultimaPizza);
@@ -65,7 +64,6 @@ formulario.addEventListener("submit", (e) => {
   e.preventDefault(); // Evitamos que se recargue la página
   const idPizza = document.getElementById("NombresPizzas").value;
 
-  // Verificar si el valor de entrada está vacío
   if (idPizza === "") {
     contenedorPizza.innerHTML = "Error: Debes ingresar un ID";
   } else if (!/^\d+$/.test(idPizza)) {
@@ -83,7 +81,6 @@ formulario.addEventListener("submit", (e) => {
         <p>Ingredientes: ${pizzaEncontrada.ingredientes.join(", ")}</p>
       `;
 
-      // Guardar la última pizza buscada en localStorage
       localStorage.setItem("ultimaPizza", JSON.stringify(pizzaEncontrada));
     } else {
       contenedorPizza.innerHTML =
